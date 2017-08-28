@@ -8,6 +8,13 @@ exports.client = function* (ctx) {
   yield ctx.renderClient('home/home.js', Model.getPage(1, 10));
 };
 
+exports.await = async function (ctx) {
+  await ctx.render('home/home.js', Model.getPage(1, 10));
+};
+
+exports.awaitClient = async function (ctx) {
+  await ctx.renderClient('home/home.js', Model.getPage(1, 10));
+};
 
 exports.element = function* (ctx) {
   yield ctx.render('element/element.js', Model.getPage(1, 10));

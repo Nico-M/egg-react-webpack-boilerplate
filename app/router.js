@@ -2,6 +2,8 @@
 module.exports = app => {
   app.get('/', app.controller.home.home.index);
   app.get('/client', app.controller.home.home.client);
+  app.get('/await', app.controller.home.home.await);
+  app.get('/await/client', app.controller.home.home.awaitClient);
   app.get('/hello', app.controller.hello.hello.index);
   app.get('/css/module', app.controller.css.css.cssModule);
   app.get('/element', app.controller.home.home.element);
