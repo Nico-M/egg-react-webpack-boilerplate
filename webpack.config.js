@@ -1,7 +1,10 @@
 const path = require('path');
 module.exports = {
   egg: true,
+  proxy:false,
   framework: 'react',
+  buildPath: 'store/public',
+  publicPath: '/store/public/',
   entry: {
     include: 'app/web/page',
     exclude: ['app/web/page/test'],
@@ -30,9 +33,12 @@ module.exports = {
       exclude: []
     }
   },
-  create(){
-    if (this.ssr) {
-      this.addEntry('layout', path.join(this.config.baseDir, 'app/web/view/layout.jsx'));
-    }
+  onClient(){
+    this.setProxy(false);
+    this.setPrefix('static');
+  },
+  onServer(){
+    this.addEntry('layout', path.join(this.config.baseDir, 'app/web/view/layout.jsx'));
+    this.publicPath = this.publicPath.replace(/\/client\//, '/static/');
   }
 };

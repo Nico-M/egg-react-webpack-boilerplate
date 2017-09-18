@@ -19,6 +19,7 @@ module.exports = app => {
   };
 
   exports.webpack = {
+    proxy: false,
     webpackConfigList: EasyWebpack.getWebpackConfig()
   };
 
