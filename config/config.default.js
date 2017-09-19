@@ -13,8 +13,8 @@ module.exports = app => {
   };
 
   exports.static = {
-    prefix: '/store/public/',
-    dir: path.join(app.baseDir, 'store/public')
+    prefix: '/react/public/',
+    dir: path.join(app.baseDir, 'react/public')
   };
 
   exports.keys = '123456';

@@ -3,12 +3,11 @@ module.exports = {
   egg: true,
   proxy:false,
   framework: 'react',
-  buildPath: 'store/public',
-  publicPath: '/store/public/',
+  buildPath: 'react/public',
+  publicPath: '/react/public/',
   entry: {
-    include: 'app/web/page',
+    include: ['app/web/page', { layout: 'app/web/view/layout.jsx?loader=false' }],
     exclude: ['app/web/page/test'],
-    extMatch: '.jsx',
     loader: {
       client: 'app/web/framework/entry/loader.js'
     }
@@ -34,11 +33,9 @@ module.exports = {
     }
   },
   onClient(){
-    this.setProxy(false);
     this.setPrefix('static');
   },
   onServer(){
-    this.addEntry('layout', path.join(this.config.baseDir, 'app/web/view/layout.jsx'));
     this.publicPath = this.publicPath.replace(/\/client\//, '/static/');
   }
 };
