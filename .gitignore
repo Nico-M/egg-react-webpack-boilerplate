@@ -21,3 +21,4 @@ app/view/*
 !app/view/layout.html
 !app/view/README.md
 package-lock.json
+react/

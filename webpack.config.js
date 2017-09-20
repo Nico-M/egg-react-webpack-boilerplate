@@ -1,8 +1,9 @@
 const path = require('path');
 module.exports = {
   egg: true,
-  proxy:false,
+  proxy: false,
   framework: 'react',
+  prefix: 'static',
   buildPath: 'react/public',
   publicPath: '/react/public/',
   entry: {
@@ -18,10 +19,10 @@ module.exports = {
     framework: 'app/web/framework',
     store: 'app/web/store'
   },
+  cssExtract: true,
   cssModule: {
     include: 'app/web/page/css/module'
   },
-  cssExtract: true,
   loaders: {
     eslint: {
       options: {
@@ -33,9 +34,7 @@ module.exports = {
     }
   },
   onClient(){
-    this.setPrefix('static');
   },
   onServer(){
-    this.publicPath = this.publicPath.replace(/\/client\//, '/static/');
   }
 };
