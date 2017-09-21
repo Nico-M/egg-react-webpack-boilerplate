@@ -23,6 +23,9 @@ module.exports = {
   cssModule: {
     include: 'app/web/page/css/module'
   },
+  install:{
+    save: false  // npm dynamic install not save in package.json
+  },
   loaders: {
     eslint: {
       options: {

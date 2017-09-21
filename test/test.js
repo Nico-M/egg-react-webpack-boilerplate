@@ -1,8 +1,3 @@
-/**
- * Created by caoli on 17/9/19.
- */
-
-
 function mixin(target, source) {
   const mixinProperty = typeof source == 'object' ? Object.getOwnPropertyNames(source) : Object.getOwnPropertyNames(source.prototype);
   mixinProperty.forEach(property => {
