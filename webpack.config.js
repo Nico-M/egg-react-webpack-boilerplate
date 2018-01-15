@@ -1,3 +1,4 @@
+const path = require('path');
 module.exports = {
   egg: true,
   framework: 'react',
@@ -26,7 +27,14 @@ module.exports = {
   },
   dll: ['react', 'react-dom'],
   loaders: {
-
+    typescript: {
+      test: /\.jsx$/,
+      exclude: [/node_modules/, /public/],
+      use: ['ts-loader'],
+      options: {
+        configFile: path.resolve(__dirname, './app/web/tsconfig.json')
+      }
+    }
   },
   plugins: {
 
